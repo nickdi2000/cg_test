@@ -15,17 +15,12 @@ class CreateAlbumsTable extends Migration
      */
     public function up()
     {
+				// in looking at the landscapes.json, the album has no data other than the child records of photos
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
 						$table->bigInteger('photographer_id')->unsigned();
-						$table->string('title');
-						$table->text('description');
-						$table->date('date');
-						$table->string('img');
-						$table->boolean('featured')->default(false);
 
-							$table->foreign('photographer_id')
+						$table->foreign('photographer_id')
 								->references('id')
 								->on('albums')->onDelete('cascade');
 

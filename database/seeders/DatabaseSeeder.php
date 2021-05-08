@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\DB;
 use Illuminate\Support\Facades\File;
 
+use App\Models\Photos;
 use App\Models\Albums;
 use App\Models\Photographer;
 
@@ -18,22 +19,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-				Albums::truncate();
-				$json = File::get('database/data/albums.json');
+				Photos::truncate();
+				$json = File::get('database/data/photos.json');
 				$data = json_decode($json);
 
 				foreach ($data as $obj) {
-					Albums::create(array(
+					Photos::create(array(
 						'id' => $obj->id,
 						'title' => $obj->title,
 						'description' => $obj->description,
 						'img' => $obj->img,
 						'date' => $obj->date,
 						'featured' => $obj->featured,
-						'photographer_id' => 1
+						'album_id' => 1 //not from JSON but we'll need this when using as seed, otherwise it would auto generate incrementally
 
 					));
 				}
+						Albums::truncate();
+						Albums::create(array(
+							  "photographer_id" => 1,
+							));
 
 					Photographer::truncate();
 					Photographer::create(array(

@@ -1,6 +1,6 @@
 <template>
 		<div class="row">
-			<template v-if="albums" v-for="al in albums">
+			<template v-if="photos" v-for="al in photos">
 					<div class="col-md-4">
 						<v-card
     class="mx-auto"
@@ -21,31 +21,12 @@
 
     <v-card-actions>
 			<div class="cardfooter">
-        <button class="btn btn-sm"><fa icon="heart" class="like" /></button>
+				<v-btn icon :color="getColor(al.featured)" @click="al.featured = !al.featured"><v-icon>mdi-heart</v-icon></v-btn>
 				<span class="updatedAt">{{ al.updated_at | moment("YYYY-MM-DD")}} </span>
 			</div>
     </v-card-actions>
 
   </v-card>
-						<!--
-					  	<b-card
-						    :title="al.title"
-						    :img-src="'/storage/' + al.img"
-						    img-alt="Image"
-						    img-top
-						    tag="article"
-						    style="max-width: 20rem;"
-						    class="mb-4"
-						  >
-							{{al.description}}
-							<div class="cardfooter">
-								<button class="btn btn-sm"><fa icon="heart" class="like" /></button>
-								<span class="updatedAt"> {{ al.updated_at | moment("YYYY-MM-DD")}} </span>
-							</div>
-
-						</b-card>
-					-->
-
 					</div>
 				</template>
 			</div>
@@ -53,19 +34,30 @@
 
 <script>
 export default {
-	props: ['albums'],
+	props: ['photos'],
+	    data: () => ({
+				color: "pink",
+	    }),
+	methods: {
+		toggleFeature(al){
+			al.featured = !al.featured;
+		},
+		getColor(val){
+			return val ? "pink" : "black";
+		}
+	}
 }
 </script>
 
 <style scoped>
-	.albums{
+	.photos{
 		display:flex;
 		flex-direction: row;
 		flex-wrap: wrap;
   	justify-content: space-between;
 	}
 
-	.albums < div {
+	.photos < div {
 		width: 33%;
 		position: relative;
 	}

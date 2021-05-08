@@ -1,29 +1,18 @@
 <template>
-  <v-carousel
-    show-arrows-on-hover
-    cycle
-    >
+	  <v-carousel>
     <v-carousel-item
-      v-for="(al, i) in albums"
-      :key="al.id"
-    >
-      <v-sheet
-        tile
-      >
-        <v-row
-          align="center"
-          justify="center"
-        >
-            <img :src="'/storage/' + al.img" />
-        </v-row>
-      </v-sheet>
-    </v-carousel-item>
+      v-for="(al,i) in photos"
+      :key="i"
+      :src="'/storage/' + al.img"
+			cycle
+			show-arrows-on-hover
+    ></v-carousel-item>
   </v-carousel>
 </template>
 
 <script>
   export default {
-    props: ['albums'],
+    props: ['photos'],
     name: 'carousel',
     data: () => ({
       model: 0,

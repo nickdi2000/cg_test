@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Albums;
+use App\Models\Photos;
 
-class AlbumsController extends Controller
+class PhotoController extends Controller
 {
 
 		public function index(){
-			return Albums::with('photos')->find(1);
+			return Photos::all();
 		}
 
 		public function update(Request $request)

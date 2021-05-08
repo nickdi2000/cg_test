@@ -2,15 +2,16 @@
 	<div>
 	<card>
 		<v-btn
-		 color="dark"
+		 small
+		 color="secondary"
 		 @click="toggle"
 	 >
-		 Toggle View
+	 	<fa icon="eye" /> &nbsp; {{ viewStyle }} View
 	 </v-btn>
 	</card>
 
 	<div style="margin-top:10px;">
-			<component :is="viewStyle" :albums="albums"/>
+			<component :is="viewStyle" :photos="albums.photos"/>
 		</div>
 	</div>
 </div>
