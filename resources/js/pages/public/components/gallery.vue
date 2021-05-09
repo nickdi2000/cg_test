@@ -22,7 +22,7 @@
     <v-card-actions>
 			<div class="cardfooter">
 				<v-btn icon :color="getColor(al.featured)" @click="al.featured = !al.featured"><v-icon>mdi-heart</v-icon></v-btn>
-				<span class="updatedAt">{{ al.updated_at | moment("YYYY-MM-DD")}} </span>
+				<span class="updatedAt">{{ al.date | moment("YYYY-MM-DD")}} </span>
 			</div>
     </v-card-actions>
 
