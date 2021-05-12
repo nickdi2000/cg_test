@@ -26,6 +26,7 @@ I haven't revamped much on the front end since we are focusing on the backend.
 
 
 <br/><br/>
+<pre>
 Change log:
 	modified:   app/Http/Controllers/AlbumsController.php
 	modified:   app/Http/Controllers/PhotoController.php
@@ -43,3 +44,4 @@ Change log:
 	modified:   resources/js/router/routes.js
 	modified:   routes/api.php
 	modified:   storage/logs/laravel.log
+</pre>
