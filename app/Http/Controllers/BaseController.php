@@ -18,8 +18,8 @@ class BaseController extends Controller
 		 	 $data = $request->toArray();
 			 $record = $this->model::create($data);
 			 $record->save();
-
-			 return response()->json(['message' => ' Successfully saved.'])->setStatusCode(201);
+			 
+			 return $this->successResponse($record, $this->modelName . ' Succesfully Saved!', 201);
 
 		}
 

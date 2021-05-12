@@ -14,7 +14,7 @@ class BaseModel extends Model
 
 	//we can also have a modelName thats easy on the eyes for a human or monkey on the front end -- thumbs up emoticon here.
 	protected $modelName;
-	
+
 	//if things scaled up, we might need a 'section' or 'module' or something to contain all the different modules (it: admin, public, photos etc)
 
 	public function __construct(array $attributes = [])
@@ -29,12 +29,6 @@ class BaseModel extends Model
 
 
 		parent::__construct($attributes);
-	}
-
-
-	// Allow us to find a model based on slug, convenient for this vue routing stuff we do
-	public function scopeSlug($query, $slug){
-		return $query->where('slug', $slug)->firstOrFail();
 	}
 
 

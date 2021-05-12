@@ -16,10 +16,11 @@ class PhotoController extends ApiController
 
 		protected $model = Photos::class;
 
-    public function like($id)
+    public function like(Request $request)
     {
-        $photo = Photos::findOrFail($id);
+        $photo = Photos::findOrFail($request->id);
 				$photo->featured = !$photo->featured;
-        return tap($photo)->update($request->only('featured'));
+        $record = tap($photo)->update($request->only('featured'));
+				return $this->successResponse($record);
     }
 }

@@ -21,7 +21,7 @@
 
     <v-card-actions>
 			<div class="cardfooter">
-				<v-btn icon :color="getColor(al.featured)" @click="al.featured = !al.featured"><v-icon>mdi-heart</v-icon></v-btn>
+				<v-btn icon :color="getColor(al.featured)" @click="like(al)"><v-icon>mdi-heart</v-icon></v-btn>
 				<span class="updatedAt">{{ al.date | moment("YYYY-MM-DD")}} </span>
 			</div>
     </v-card-actions>
@@ -39,8 +39,13 @@ export default {
 				color: "pink",
 	    }),
 	methods: {
-		toggleFeature(al){
-			al.featured = !al.featured;
+		like(al){
+			let data = {id: al.id, featured: !al.featured };
+			axios.patch('/api/photos/like', data)
+				.then(res => {
+					console.log(res.data.data.featured);
+						al.featured = res.data.data.featured;
+				});
 		},
 		getColor(val){
 			return val ? "pink" : "black";
