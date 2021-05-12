@@ -23,3 +23,23 @@ I haven't revamped much on the front end since we are focusing on the backend.
 </ul>
 
 <a href="https://cgtest.webfly.io/">LIVE DEMO</a>
+
+
+<br/><br/>
+Change log:
+	modified:   app/Http/Controllers/AlbumsController.php
+	modified:   app/Http/Controllers/PhotoController.php
+	modified:   app/Http/Controllers/PhotographerController.php
+	modified:   app/Models/Albums.php
+	modified:   app/Models/Photographer.php
+	modified:   app/Models/Photos.php
+	modified:   package-lock.json
+	modified:   package.json
+	modified:   resources/js/pages/errors/404.vue
+	modified:   resources/js/pages/public/albums.vue
+	modified:   resources/js/pages/public/components/carousel.vue
+	modified:   resources/js/pages/public/home.vue
+	modified:   resources/js/plugins/fontawesome.js
+	modified:   resources/js/router/routes.js
+	modified:   routes/api.php
+	modified:   storage/logs/laravel.log
