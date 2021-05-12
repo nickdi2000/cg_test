@@ -1,12 +1,12 @@
 <template>
   <card class="text-center">
     <h3 class="mb-4">
-      {{ $t('page_not_found') }}
+      404 - Page Not Found
     </h3>
 
     <div class="links">
       <router-link :to="{ name: 'welcome' }">
-        {{ $t('go_home') }}
+        Home Page
       </router-link>
     </div>
   </card>

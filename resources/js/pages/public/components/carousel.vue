@@ -14,15 +14,5 @@
   export default {
     props: ['photos'],
     name: 'carousel',
-    data: () => ({
-      model: 0,
-      colors: [
-        'primary',
-        'secondary',
-        'yellow darken-2',
-        'red',
-        'orange',
-      ],
-    }),
   }
 </script>

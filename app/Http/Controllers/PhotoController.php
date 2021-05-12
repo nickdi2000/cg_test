@@ -5,16 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Photos;
+use App\Http\Controllers\ApiController;
 
-class PhotoController extends Controller
+class PhotoController extends ApiController
 {
 
 		public function index(){
 			return Photos::all();
 		}
 
-		public function update(Request $request)
-    {
+		protected $model = Photos::class;
 
+    public function like($id)
+    {
+        $photo = Photos::findOrFail($id);
+				$photo->featured = !$photo->featured;
+        return tap($photo)->update($request->only('featured'));
     }
 }

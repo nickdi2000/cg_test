@@ -1,5 +1,9 @@
 <template>
-	<v-container class="grey lighten-5" elevation="3">
+	<v-container v-if="!photographer">
+		Loading..
+	</v-container>
+
+	<v-container v-else class="grey lighten-5" elevation="3">
     <v-row no-gutters>
     <v-col>
 				<v-card class="pa-2" outlined height="100%" >
@@ -24,6 +28,11 @@
 										<strong>Email</strong>
 										<p class="text-danger">{{photographer.email}}</p>
 							</v-card-text>
+							 <v-card-actions>
+								 <router-link :to="photographer.editPath" tag="v-btn" color="info" small outlined>
+									 <fa icon="edit" /> &nbsp; Edit
+								 </router-link>
+							 </v-card-actions>
 		        </v-card>
 	      </v-col>
     </v-row>
@@ -50,9 +59,9 @@ export default {
   },
 	methods: {
 		getData(){
-			axios.get('/api/photographer/' + this.$route.params.id)
+			axios.get('/api/photographers/' + this.$route.params.id)
 				.then(res => {
-						this.photographer = res.data;
+						this.photographer = res.data.data;
 				});
 		}
 	},

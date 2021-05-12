@@ -10,6 +10,13 @@ class Albums extends Model
 		public $timestamps = false;
     use HasFactory;
 
+		protected $resource = 'albums';
+		protected $modelName = "Album";
+
+		protected $fillable = [
+        'photographer_id',
+    ];
+
 		public function photographer()
 		{
 		    return $this->belongsTo(Photographer::class);

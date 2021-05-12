@@ -41,7 +41,7 @@ export default {
 			axios.get('/api/albums')
 				.then(res => {
 						console.log(res);
-						this.albums = res.data;
+						this.albums = res.data.data;
 				});
 		},
 		toggle(){
