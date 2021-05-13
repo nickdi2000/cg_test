@@ -24,24 +24,37 @@ I haven't revamped much on the front end since we are focusing on the backend.
 
 <a href="https://cgtest.webfly.io/">LIVE DEMO</a>
 
+# Real World
+In the real world we would probably be making use of some kind of authentication.  This would appear to be an application where a photographer can upload photos, create an account, edit their photos, etc.  There would likely be use of a middleware layer where we can facilitate what requires authentication on speficic API/routes.  The base model I created could also use detailed error logging for inconsistencies such as a missing "modelName", if is required for the vision of our strucuture.  The front end would be much cleaner too, we would probably globalize some of the common functions as mixins.  I would normally use a "toast" for the success message, and possibly route them back to the main page after ssaving.  We would also have route guards in place to prevent nvaigation to areas that requuire authentication.
 
 <br/><br/>
 <pre>
 Change log:
-	modified:   app/Http/Controllers/AlbumsController.php
-	modified:   app/Http/Controllers/PhotoController.php
-	modified:   app/Http/Controllers/PhotographerController.php
-	modified:   app/Models/Albums.php
-	modified:   app/Models/Photographer.php
-	modified:   app/Models/Photos.php
-	modified:   package-lock.json
-	modified:   package.json
-	modified:   resources/js/pages/errors/404.vue
-	modified:   resources/js/pages/public/albums.vue
-	modified:   resources/js/pages/public/components/carousel.vue
-	modified:   resources/js/pages/public/home.vue
-	modified:   resources/js/plugins/fontawesome.js
-	modified:   resources/js/router/routes.js
-	modified:   routes/api.php
-	modified:   storage/logs/laravel.log
+    M       app/Http/Controllers/AlbumsController.php
+    D       app/Http/Controllers/ApiController.php
+    D       app/Http/Controllers/BaseController.php
+    M       app/Http/Controllers/PhotoController.php
+    M       app/Http/Controllers/PhotographerController.php
+    M       app/Models/Albums.php
+    D       app/Models/BaseModel.php
+    M       app/Models/Photographer.php
+    M       app/Models/Photos.php
+    D       app/Traits/ApiHandler.php
+    M       package-lock.json
+    M       package.json
+    A       resources/js/pages/auth/login.vue
+    A       resources/js/pages/auth/password/email.vue
+    A       resources/js/pages/auth/password/reset.vue
+    A       resources/js/pages/auth/register.vue
+    A       resources/js/pages/auth/verification/resend.vue
+    A       resources/js/pages/auth/verification/verify.vue
+    M       resources/js/pages/errors/404.vue
+    M       resources/js/pages/public/albums.vue
+    M       resources/js/pages/public/components/carousel.vue
+    D       resources/js/pages/public/components/edit.vue
+    M       resources/js/pages/public/home.vue
+    M       resources/js/plugins/fontawesome.js
+    M       resources/js/router/routes.js
+    M       routes/api.php
+    M       storage/logs/laravel.log
 </pre>
