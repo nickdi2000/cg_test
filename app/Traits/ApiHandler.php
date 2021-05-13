@@ -19,13 +19,26 @@ trait ApiHandler{
 	}
 
 	//we will pass the response code if it is an error
-	protected function errorResponse($message = 'Uh oh..Something bad happened', $responseCode) //we should always send a msg as parameter here
+	protected function errorResponse($message = 'Uh oh..Something undescriptively bad happened', $responseCode) //we should  send a msg as parameter here
 	{
+		//or if we wanted to, we could override default messsages for the rrors too.., (we would send the $message default paramater value as null)
+		/*
+		$defaultMessages = [
+				'403' => 'Forbidden Access!',
+				'404' => 'Oh no, not found',
+				// .. and so on
+		];
+		 $message = ($message == null) ? $defaultMessages[$responseCode] : 'Something went wrong, this is default message';
+		 */
+
 		return response()->json([
 			'status'=>'error',
 			'message' => $message, //could be array/object
 			'data' => null,
 		], $responseCode);
 	}
+
+
+
 
 }

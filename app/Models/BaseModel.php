@@ -12,7 +12,7 @@ class BaseModel extends Model
 	// lets require the table name
 	protected $resource;
 
-	//we can also have a modelName thats easy on the eyes for a human or monkey on the front end -- thumbs up emoticon here.
+	//we can also have a modelName thats easy on the eyes 
 	protected $modelName;
 
 	//if things scaled up, we might need a 'section' or 'module' or something to contain all the different modules (it: admin, public, photos etc)
